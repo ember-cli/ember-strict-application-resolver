@@ -1,4 +1,4 @@
-# ember-strict-resolver
+# ember-strict-application-resolver
 
 A polyfill implementation of the upcoming default strict resolver built in to Ember.
 
@@ -15,7 +15,7 @@ In your app.js or app.ts, or wherever you configure your application
   import config from '<app-name>/config/environment';
 - import EmberApp from '@ember/application';
 - import EmberResolver from 'ember-resolver';
-+ import EmberApp from 'ember-strict-resolver';
++ import EmberApp from 'ember-strict-application-resolver';
 
   class TestApp extends EmberApp {
     modulePrefix = config.modulePrefix;
