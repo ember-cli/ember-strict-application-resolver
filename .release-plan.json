@@ -1,0 +1,18 @@
+{
+  "solution": {
+    "ember-strict-application-resolver": {
+      "impact": "patch",
+      "oldVersion": "0.0.0",
+      "newVersion": "0.0.1",
+      "tagName": "latest",
+      "constraints": [
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
+        }
+      ],
+      "pkgJSONPath": "./package.json"
+    }
+  },
+  "description": "## Release (2025-07-27)\n\n* ember-strict-application-resolver 0.0.1 (patch)\n\n#### :house: Internal\n* `ember-strict-application-resolver`\n  * [#2](https://github.com/NullVoxPopuli/ember-strict-application-resolver/pull/2) Setup release-plan ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
+}
