@@ -1,5 +1,5 @@
 {
-  "name": "ember-strict-resolver",
+  "name": "ember-strict-application-resolver",
   "version": "0.0.0",
   "description": "The default blueprint for Embroider v2 addons.",
   "keywords": [
