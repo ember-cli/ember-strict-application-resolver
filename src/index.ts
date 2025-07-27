@@ -1,7 +1,22 @@
 import EmberApplication from '@ember/application';
 import { StrictResolver } from './strict-resolver.ts';
 
-export class Application extends EmberApplication {
+export default class EmberApp extends EmberApplication {
+  Resolver = {
+    create: ({
+      namespace,
+    }: {
+      namespace: {
+        modules: Record<string, Record<string, unknown>>;
+        plurals?: Record<string, string>;
+      };
+    }) => {
+      const resolver = new StrictResolver(namespace.modules, namespace.plurals);
+
+      return resolver;
+    },
+  };
+
   /**
     Set this to opt-in to using a strict resolver that will only return the
     given set of ES modules. The names of the modules should all be relative to

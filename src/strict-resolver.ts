@@ -4,6 +4,11 @@ export class StrictResolver implements Resolver {
   #modules = new Map<string, Record<string, unknown>>();
   #plurals = new Map<string, string>();
   original: any;
+
+  static create(...args: any[]) {
+    new StrictResolver(...args);
+  }
+
   constructor(
     modules: Record<string, Record<string, unknown>>,
     plurals: Record<string, string> | undefined = undefined,
