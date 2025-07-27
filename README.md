@@ -12,13 +12,14 @@ npm add ember-strict-resolver
 
 In your app.js or app.ts, or wherever you configure your application
 ```diff
-  import config from '<app-name>/config/environment';
+- import config from '<app-name>/config/environment';
 - import EmberApp from '@ember/application';
 - import EmberResolver from 'ember-resolver';
 + import EmberApp from 'ember-strict-application-resolver';
 
   class TestApp extends EmberApp {
-    modulePrefix = config.modulePrefix;
+-   modulePrefix = config.modulePrefix;
+-   podModulePrefix = config.podModulePrefix;
 -   Resolver = EmberResolver.withModules({
 -      [`${config.modulePrefix}/router`]: { default: Router },
 -      [`${config.modulePrefix}/services/manual`]: { default: Manual },
