@@ -16,7 +16,6 @@ class Router extends EmberRouter {
 }
 
 class TestApp extends EmberApp {
-  modulePrefix = 'test-app';
   modules = {
     './router': { default: Router },
     './services/manual': { default: Manual },
