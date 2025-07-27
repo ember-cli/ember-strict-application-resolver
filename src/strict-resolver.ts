@@ -37,6 +37,7 @@ export class StrictResolver implements Resolver {
   }
 
   resolve(fullName: string): Factory<object> | object | undefined {
+    // eslint-disable-next-line prefer-const
     let [type, name] = fullName.split(':') as [string, string];
     name = this.#normalizeName(type, name);
     for (const strategy of [
@@ -60,6 +61,7 @@ export class StrictResolver implements Resolver {
   }
 
   normalize(fullName: `${string}:${string}`): `${string}:${string}` {
+    // eslint-disable-next-line prefer-const
     let [type, name] = fullName.split(':') as [string, string];
     name = this.#normalizeName(type, name);
     return `${type}:${name}`;
