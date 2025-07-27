@@ -78,6 +78,7 @@
     "type": "addon",
     "main": "addon-main.cjs"
   },
+  "packageManager": "pnpm@10.13.1",
   "imports": {
     "#src/*": "./src/*"
   },
