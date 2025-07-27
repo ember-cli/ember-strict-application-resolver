@@ -1,10 +1,14 @@
-import EmberApp from '@ember/application';
-import Resolver from 'ember-resolver';
+import EmberApp from '#src/index.ts';
+import Service from '@ember/service';
 import EmberRouter from '@ember/routing/router';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
 import { start as qunitStart, setupEmberOnerrorValidation } from 'ember-qunit';
+
+class Manual extends Service {
+  weDidIt = true;
+}
 
 class Router extends EmberRouter {
   location = 'none';
@@ -13,10 +17,12 @@ class Router extends EmberRouter {
 
 class TestApp extends EmberApp {
   modulePrefix = 'test-app';
-  Resolver = Resolver.withModules({
-    'test-app/router': { default: Router },
-    // add any custom services here
-  });
+  modules = {
+    './router': { default: Router },
+    './services/manual': { default: Manual },
+    './services/manual-shorthand': Manual,
+    ...import.meta.glob('./services/*', { eager: true }),
+  };
 }
 
 Router.map(function () {});

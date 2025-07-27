@@ -1,21 +1,51 @@
 # ember-strict-resolver
 
-[Short description of the addon.]
-
-## Compatibility
-
-- Ember.js v4.12 or above
-- Embroider or ember-auto-import v2
+A polyfill implementation of the upcoming default strict resolver built in to Ember.
 
 ## Installation
 
 ```
-ember install ember-strict-resolver
+npm add ember-strict-resolver
 ```
 
 ## Usage
 
-[Longer description of how to use the addon in apps.]
+In your app.js or app.ts, or wherever you configure your application
+```diff
+  import config from '<app-name>/config/environment';
+- import EmberApp from '@ember/application';
+- import EmberResolver from 'ember-resolver';
++ import EmberApp from 'ember-strict-resolver';
+
+  class TestApp extends EmberApp {
+    modulePrefix = config.modulePrefix;
+-   Resolver = EmberResolver.withModules({
+-      [`${config.modulePrefix}/router`]: { default: Router },
+-      [`${config.modulePrefix}/services/manual`]: { default: Manual },
+-    });
+
++    modules = {
++      './router': { default: Router },
++      './services/manual': { default: SomeService },
++      './services/manual-shorthand': SomeOtherService,
++
++      // now import.meta.glob just works
++      ...import.meta.glob('./services/**/*', { eager: true }),
++      ...import.meta.glob('./routes/*', { eager: true }),
++      ...import.meta.glob('./templates/**/*', { eager: true }),
++    };
+  }
+```
+
+The type of `modules` is:
+```ts
+{ 
+  [modulePath: string]:
+    | ExportableType
+    | { [exportName: string]: ExportableType };
+};
+```
+
 
 ## Contributing
 
