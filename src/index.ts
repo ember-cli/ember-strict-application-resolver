@@ -1,6 +1,16 @@
 import EmberApplication from '@ember/application';
 import { StrictResolver } from './strict-resolver.ts';
 
+type ExportableType =
+  | undefined
+  | null
+  | object
+  | number
+  | string
+  | boolean
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+  | Function;
+
 export default class EmberApp extends EmberApplication {
   Resolver = {
     create: ({
@@ -24,7 +34,11 @@ export default class EmberApp extends EmberApplication {
     @property modules
     @public
   */
-  declare modules?: Record<string, Record<string, unknown>>;
+  declare modules?: {
+    [modulePath: string]:
+      | ExportableType
+      | { [exportName: string]: ExportableType };
+  };
 
   // TODO: I don't think I really want to add this, but I also don't want to
   // keep legacy pluralization baked in.

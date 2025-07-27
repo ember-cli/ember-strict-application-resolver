@@ -20,6 +20,7 @@ class TestApp extends EmberApp {
   modules = {
     './router': { default: Router },
     './services/manual': { default: Manual },
+    './services/manual-shorthand': Manual,
     ...import.meta.glob('./services/*', { eager: true }),
   };
 }

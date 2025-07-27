@@ -18,6 +18,15 @@ module('Registry', function (hooks) {
     assert.ok(manual.weDidIt);
   });
 
+  test('has a manually registered (shorthand) service', function (assert) {
+    const manual = this.owner.lookup('service:manual-shorthand') as {
+      weDidIt: boolean;
+    };
+
+    assert.ok(manual);
+    assert.ok(manual.weDidIt);
+  });
+
   test('has a service from import.meta.glob', function (assert) {
     const metaGlob = this.owner.lookup('service:from-meta-glob') as {
       weDidIt: boolean;
