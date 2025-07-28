@@ -5,7 +5,7 @@ A polyfill implementation of the upcoming default strict resolver built in to Em
 ## Installation
 
 ```
-npm add ember-strict-resolver
+npm add ember-strict-application-resolver
 ```
 
 ## Usage
