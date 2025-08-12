@@ -1,18 +1,18 @@
 {
   "solution": {
     "ember-strict-application-resolver": {
-      "impact": "patch",
-      "oldVersion": "0.0.1",
-      "newVersion": "0.0.2",
+      "impact": "minor",
+      "oldVersion": "0.0.2",
+      "newVersion": "0.1.0",
       "tagName": "latest",
       "constraints": [
         {
-          "impact": "patch",
-          "reason": "Appears in changelog section :memo: Documentation"
+          "impact": "minor",
+          "reason": "Appears in changelog section :rocket: Enhancement"
         }
       ],
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2025-07-27)\n\n* ember-strict-application-resolver 0.0.2 (patch)\n\n#### :memo: Documentation\n* `ember-strict-application-resolver`\n  * [#5](https://github.com/NullVoxPopuli/ember-strict-application-resolver/pull/5) Remove *prefix ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
+  "description": "## Release (2025-08-12)\n\n* ember-strict-application-resolver 0.1.0 (minor)\n\n#### :rocket: Enhancement\n* `ember-strict-application-resolver`\n  * [#8](https://github.com/NullVoxPopuli/ember-strict-application-resolver/pull/8) Add build-registry for libraries to support ember-resolver and make constructing registries easier ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
 }
