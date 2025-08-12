@@ -17,7 +17,7 @@ In your app.js or app.ts, or wherever you configure your application
 - import EmberResolver from 'ember-resolver';
 + import EmberApp from 'ember-strict-application-resolver';
 
-  class TestApp extends EmberApp {
+  class YouApp extends EmberApp {
 -   modulePrefix = config.modulePrefix;
 -   podModulePrefix = config.podModulePrefix;
 -   Resolver = EmberResolver.withModules({
@@ -47,6 +47,46 @@ The type of `modules` is:
 };
 ```
 
+### `buildRegistry`
+
+Libraries may declare `ember-strict-application-resolver` as a `dependencies` entry, and then import from `./build-registry` - to provide helpers for packages all the library's services and other things that need to be in the registry (such as from the library's dependencies as well)
+
+For example:
+```js
+// in src/registry.ts (or js)
+import { buildRegistry } from 'ember-strict-application-resolver';
+import TheService from 'from-dependency/services/the-service';
+
+export default buildRegistry({
+  ...import.meta.glob('./services/*', { eager: true }),
+  './services/the-service': { default: TheService },
+});
+```
+
+Then consumers of your library would either splat this into their `modules` object:
+```js
+import libraryRegistry from 'your-library/registry';
+// ...
+
+modules = {
+  // if the app is using ember-strict-application-resolver
+  ...libraryRegistry(),
+  // or if using ember-resolver
+  ...libraryRegistry('name-of-app'),
+}
+```
+
+Or consuming libraries would propagate the configuration for their consumers:
+```js
+import { buildRegistry } from 'ember-strict-application-resolver';
+import libraryRegistry from 'your-library/registry';
+
+export default buildRegistry({
+  ...import.meta.glob('./services/*', { eager: true }),
+  // No argument should be passed here
+  ...libraryRegistry(),
+});
+```
 
 ## Contributing
 
