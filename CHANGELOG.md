@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2025-08-12)
+
+* ember-strict-application-resolver 0.1.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-strict-application-resolver`
+  * [#8](https://github.com/NullVoxPopuli/ember-strict-application-resolver/pull/8) Add build-registry for libraries to support ember-resolver and make constructing registries easier ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## Release (2025-07-27)
 
 * ember-strict-application-resolver 0.0.2 (patch)
