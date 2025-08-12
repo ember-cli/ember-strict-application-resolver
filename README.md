@@ -54,7 +54,7 @@ Libraries may declare `ember-strict-application-resolver` as a `dependencies` en
 For example:
 ```js
 // in src/registry.ts (or js)
-import { buildRegistry } from 'ember-strict-application-resolver';
+import { buildRegistry } from 'ember-strict-application-resolver/build-registry';
 import TheService from 'from-dependency/services/the-service';
 
 export default buildRegistry({
@@ -78,7 +78,7 @@ modules = {
 
 Or consuming libraries would propagate the configuration for their consumers:
 ```js
-import { buildRegistry } from 'ember-strict-application-resolver';
+import { buildRegistry } from 'ember-strict-application-resolver/build-registry';
 import libraryRegistry from 'your-library/registry';
 
 export default buildRegistry({
