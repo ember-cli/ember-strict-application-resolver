@@ -8,6 +8,6 @@
   "include": ["src/**/*", "tests/**/*"],
   "compilerOptions": {
     "rootDir": ".",
-    "types": ["ember-source/types", "vite/client", "@embroider/core/virtual"]
+    "types": ["ember-source/types", "vite/client", "@embroider/core/virtual", "@glint/ember-tsc/types"]
   }
 }
