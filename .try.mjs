@@ -23,8 +23,81 @@ const compatDeps = {
   '@ember/optional-features': '^2.2.0',
 };
 
+const superOldDeps = {
+  '@glimmer/component': '^1.0.0',
+  'ember-cli': '^4.12.0',
+};
+
 export default {
   scenarios: [
+    {
+      name: 'ember-lts-3.28',
+      npm: {
+        devDependencies: {
+          'ember-source': '~3.28.0',
+          ...compatDeps,
+          ...superOldDeps,
+        },
+      },
+      env: {
+        ENABLE_COMPAT_BUILD: true,
+      },
+      files: compatFiles,
+    },
+    {
+      name: 'ember-lts-4.4',
+      npm: {
+        devDependencies: {
+          'ember-source': '~4.4.0',
+          ...compatDeps,
+          ...superOldDeps,
+        },
+      },
+      env: {
+        ENABLE_COMPAT_BUILD: true,
+      },
+      files: compatFiles,
+    },
+    {
+      name: 'ember-lts-4.8',
+      npm: {
+        devDependencies: {
+          'ember-source': '~4.8.0',
+          ...compatDeps,
+          ...superOldDeps,
+        },
+      },
+      env: {
+        ENABLE_COMPAT_BUILD: true,
+      },
+      files: compatFiles,
+    },
+    {
+      name: 'ember-lts-4.12',
+      npm: {
+        devDependencies: {
+          'ember-source': '~4.12.0',
+          ...compatDeps,
+        },
+      },
+      env: {
+        ENABLE_COMPAT_BUILD: true,
+      },
+      files: compatFiles,
+    },
+    {
+      name: 'ember-lts-5.4',
+      npm: {
+        devDependencies: {
+          'ember-source': '~5.4.0',
+          ...compatDeps,
+        },
+      },
+      env: {
+        ENABLE_COMPAT_BUILD: true,
+      },
+      files: compatFiles,
+    },
     {
       name: 'ember-lts-5.8',
       npm: {
