@@ -12,6 +12,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  build:
+    name: "Build"
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+
   lint:
     name: "Lints"
     runs-on: ubuntu-latest
@@ -50,8 +64,7 @@ jobs:
       # For the Try Scenarios
       - id: set-matrix
         run: |
-           echo "matrix=$(pnpm -s dlx @embroider/try list)" >> $GITHUB_OUTPUT
-
+          echo "matrix=$(pnpm -s dlx @embroider/try list)" >> $GITHUB_OUTPUT
 
   floating:
     name: "Floating Dependencies"
@@ -88,7 +101,7 @@ jobs:
           cache: pnpm
       - name: Apply Scenario
         run: |
-           pnpm dlx @embroider/try apply ${{ matrix.name }}
+          pnpm dlx @embroider/try apply ${{ matrix.name }}
 
       - name: Install Dependencies
         run: pnpm install --no-lockfile
