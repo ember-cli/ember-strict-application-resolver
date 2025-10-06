@@ -5,10 +5,7 @@
  */
 {
   "extends": "@ember/app-tsconfig",
-  "glint": {
-    "environment": ["ember-loose", "ember-template-imports"]
-  },
-  "include": ["src/**/*", "tests/**/*", "unpublished-development-types/**/*"],
+  "include": ["src/**/*", "tests/**/*"],
   "compilerOptions": {
     "rootDir": ".",
     "types": ["ember-source/types", "vite/client", "@embroider/core/virtual"]
