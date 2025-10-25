@@ -4,6 +4,9 @@ import { configs } from '@nullvoxpopuli/eslint-configs';
 export default [
   ...configs.ember(import.meta.dirname),
   {
+    ignores: ['node_modules', 'dist', 'dist-test', 'test-apps'],
+  },
+  {
     files: ['**/*.ts'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
