@@ -83,6 +83,33 @@ jobs:
       - name: Run Tests
         run: pnpm test
 
+  smoke-tests:
+    name: ${{ matrix.dir }}
+    runs-on: ubuntu-latest
+    needs: "test"
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        dir:
+          - "vite-with-strict-app"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm install --no-lockfile
+      - name: Build Library
+        run: pnpm build
+      - name: Run Tests
+        working-directory: test-apps/${{ matrix.dir }}
+        run: pnpm test
+
   try-scenarios:
     name: ${{ matrix.name }}
     runs-on: ubuntu-latest
