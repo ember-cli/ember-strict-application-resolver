@@ -93,6 +93,7 @@ jobs:
       matrix:
         dir:
           - "vite-with-strict-app"
+          - "v2-addon"
 
     steps:
       - uses: actions/checkout@v4
