@@ -15,10 +15,17 @@ module('compatToRFC1132', function (hooks) {
     );
 
     assert.deepEqual(Object.keys(result), [
+      // Everything resolvable in our dist
+      // We shouldn't *really* have this stuff in here,
+      // but we need a change to compatModules,
+      // likely via the ember() vite plugin to configure this
       './build-registry',
       './convert',
       './index',
       './strict-resolver',
+      './types',
+      // From ember-page-title (in devDependencies)
+      './services/page-title',
     ]);
   });
 
