@@ -122,6 +122,9 @@ In your app.js or app.ts, or wherever you configure your application
   }
 ```
 
+> [!IMPORTANT]
+> `compatModules` finds files via the `exports` in package.json, which means to use this in a library, the library must first be built.
+
 ## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
