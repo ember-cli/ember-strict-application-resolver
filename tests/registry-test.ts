@@ -35,4 +35,19 @@ module('Registry', function (hooks) {
     assert.ok(metaGlob);
     assert.ok(metaGlob.weDidIt);
   });
+
+  test('registered stuff can be looked up', function (assert) {
+    class Foo {
+      static create() {
+        return new this();
+      }
+
+      two = 2;
+    }
+    this.owner.register('not-standard:main', Foo);
+
+    const value = this.owner.lookup('not-standard:main') as Foo;
+
+    assert.strictEqual(value.two, 2);
+  });
 });
