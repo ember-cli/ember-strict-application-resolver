@@ -12,13 +12,18 @@
     "#src/*": "./src/*"
   },
   "exports": {
-    ".": {
-      "default": "./dist/index.js"
-    },
-    "./addon-main.js": "./addon-main.cjs",
-    "./*.css": "./dist/*.css",
-    "./*": {
-      "default": "./dist/*.js"
+    "./*": "./src/*.js"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "default": "./dist/index.js"
+      },
+      "./addon-main.js": "./addon-main.cjs",
+      "./*.css": "./dist/*.css",
+      "./*": {
+        "default": "./dist/*.js"
+      }
     }
   },
   "files": [
@@ -65,7 +70,7 @@
     "ember-page-title": "^8.2.4",
     "ember-qunit": "^9.0.2",
     "ember-source": "^6.7.0",
-    "ember-strict-application-resolver": "^0.1.0",
+    "ember-strict-application-resolver": "workspace:*",
     "ember-template-lint": "^7.9.0",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^10.1.5",
