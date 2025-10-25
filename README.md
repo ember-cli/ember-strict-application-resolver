@@ -29,6 +29,7 @@ In your app.js or app.ts, or wherever you configure your application
 +      './router': { default: Router },
 +      './services/manual': { default: SomeService },
 +      './services/manual-shorthand': SomeOtherService,
++      './config/environment': { /* config here */ },
 +
 +      // now import.meta.glob just works
 +      ...import.meta.glob('./services/**/*', { eager: true }),

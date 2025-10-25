@@ -10,6 +10,8 @@ if (macroCondition(isDevelopingApp())) {
   importSync('./deprecation-workflow');
 }
 
+console.log(compatModules);
+
 export default class App extends EmberApp {
   modules = {
     ...compatToRFC1132('vite-with-strict-app', compatModules),
