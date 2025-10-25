@@ -2,6 +2,8 @@
 
 A polyfill implementation of the upcoming default strict resolver built in to Ember.
 
+See [RFC #1132](https://rfcs.emberjs.com/id/1132-default-strict-resolver) for more.
+
 ## Installation
 
 ```
