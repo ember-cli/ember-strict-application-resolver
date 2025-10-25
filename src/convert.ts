@@ -1,6 +1,10 @@
 import { assert } from '@ember/debug';
 import type { ModuleEntries } from './types.ts';
 
+/**
+ * Adapts the old module format which requires a modulePrefix to the
+ * new moduleFormat specified it RFC 1132.
+ */
 export function compatToRFC1132(modulePrefix: string, modules: ModuleEntries) {
   const result: ModuleEntries = {};
 
