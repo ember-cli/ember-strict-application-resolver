@@ -31,9 +31,9 @@ In your app.js or app.ts, or wherever you configure your application
 +      './services/manual-shorthand': SomeOtherService,
 +
 +      // now import.meta.glob just works
-+      ...import.meta.glob('./services/**/*', { eager: true }),
-+      ...import.meta.glob('./routes/*', { eager: true }),
-+      ...import.meta.glob('./templates/**/*', { eager: true }),
++      ...import.meta.glob('./services/**/*.{js,ts}', { eager: true }),
++      ...import.meta.glob('./routes/*.{js,ts}', { eager: true }),
++      ...import.meta.glob('./templates/**/*.{gjs,gts}', { eager: true }),
 +    };
   }
 ```
@@ -49,6 +49,9 @@ The type of `modules` is:
 
 ### `buildRegistry`
 
+> [!IMPORTANT]
+> This API is a stop-gap, and will be removed when `@embroider/virtual/compat-modules` supports working in both libraries and apps with no `modulePrefix`
+
 Libraries may declare `ember-strict-application-resolver` as a `dependencies` entry, and then import from `./build-registry` - to provide helpers for packages all the library's services and other things that need to be in the registry (such as from the library's dependencies as well)
 
 For example:
@@ -58,7 +61,7 @@ import { buildRegistry } from 'ember-strict-application-resolver/build-registry'
 import TheService from 'from-dependency/services/the-service';
 
 export default buildRegistry({
-  ...import.meta.glob('./services/*', { eager: true }),
+  ...import.meta.glob('./services/*.{js,ts}', { eager: true }),
   './services/the-service': { default: TheService },
 });
 ```
@@ -82,7 +85,7 @@ import { buildRegistry } from 'ember-strict-application-resolver/build-registry'
 import libraryRegistry from 'your-library/registry';
 
 export default buildRegistry({
-  ...import.meta.glob('./services/*', { eager: true }),
+  ...import.meta.glob('./services/*.{js,ts}', { eager: true }),
   // No argument should be passed here
   ...libraryRegistry(),
 });
