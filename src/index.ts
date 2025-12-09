@@ -1,23 +1,13 @@
 import EmberApplication from '@ember/application';
 import { StrictResolver } from './strict-resolver.ts';
 
-type ExportableType =
-  | undefined
-  | null
-  | object
-  | number
-  | string
-  | boolean
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
-  | Function;
-
 export default class EmberApp extends EmberApplication {
   Resolver = {
     create: ({
       namespace,
     }: {
       namespace: {
-        modules: Record<string, Record<string, unknown>>;
+        modules: Record<string, unknown>;
         plurals?: Record<string, string>;
       };
     }) => {
@@ -35,9 +25,7 @@ export default class EmberApp extends EmberApplication {
     @public
   */
   declare modules?: {
-    [modulePath: string]:
-      | ExportableType
-      | { [exportName: string]: ExportableType };
+    [modulePath: string]: unknown;
   };
 
   // TODO: I don't think I really want to add this, but I also don't want to
