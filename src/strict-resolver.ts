@@ -1,12 +1,12 @@
 import type { Factory, Resolver } from '@ember/owner';
 
 export class StrictResolver implements Resolver {
-  #modules = new Map<string, Record<string, unknown>>();
+  #modules = new Map<string, unknown>();
   #plurals = new Map<string, string>();
   original: any;
 
   constructor(
-    modules: Record<string, Record<string, unknown>>,
+    modules: Record<string, unknown>,
     plurals: Record<string, string> | undefined = undefined,
   ) {
     this.addModules(modules);
@@ -18,7 +18,7 @@ export class StrictResolver implements Resolver {
     }
   }
 
-  addModules(modules: Record<string, Record<string, unknown>>) {
+  addModules(modules: Record<string, unknown>) {
     for (const [moduleName, module] of Object.entries(modules)) {
       this.#modules.set(this.#normalizeModule(moduleName), module);
     }
