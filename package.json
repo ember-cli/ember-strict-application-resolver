@@ -5,10 +5,7 @@
   "keywords": [
     "ember-addon"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:NullVoxPopuli/ember-strict-application-resolver.git"
-  },
+  "repository": "https://github.com/ember-cli/ember-strict-application-resolver",
   "license": "MIT",
   "author": "",
   "imports": {
