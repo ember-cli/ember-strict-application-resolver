@@ -25,8 +25,8 @@ class TestApp extends EmberApp {
     './router': { default: Router },
     './services/manual': { default: Manual },
     './services/manual-shorthand': Manual,
-    './templates/application_loading': ApplicationLoadingComponent,
-    './templates/application_error': ApplicationErrorComponent,
+    './templates/application-loading': ApplicationLoadingComponent,
+    './templates/application-error': ApplicationErrorComponent,
     ...import.meta.glob('./services/*', { eager: true }),
   };
 }
