@@ -4,6 +4,7 @@ export class StrictResolver implements Resolver {
   #modules = new Map<string, unknown>();
   #plurals = new Map<string, string>();
   original: any;
+  moduleBasedResolver = true;
 
   constructor(
     modules: Record<string, unknown>,
@@ -71,9 +72,9 @@ export class StrictResolver implements Resolver {
       (type === 'template' && name.indexOf('components/') === 0)
     ) {
       return name.replace(/_/g, '-');
-    } else {
-      return dasherize(name.replace(/\./g, '/'));
     }
+
+    return dasherize(name.replace(/\./g, '/'));
   }
 
   #resolveSelf(type: string, name: string): Result {

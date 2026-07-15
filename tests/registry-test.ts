@@ -50,4 +50,32 @@ module('Registry', function (hooks) {
 
     assert.strictEqual(value.two, 2);
   });
+
+  test('has an application_loading substate template', function (assert) {
+    // @ts-expect-error private API
+    const instance = [...this.owner.application._applicationInstances][0];
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    instance.setupRouter();
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    const routerHasRoute = instance.router.hasRoute('application_loading');
+    const template = this.owner.factoryFor('template:application_loading');
+    const route = this.owner.factoryFor('route:application_loading');
+
+    assert.ok(routerHasRoute, 'router has route');
+    assert.ok(template || route, 'has template or route');
+  });
+
+  test('has an application_error substate template', function (assert) {
+    // @ts-expect-error private API
+    const instance = [...this.owner.application._applicationInstances][0];
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    instance.setupRouter();
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    const routerHasRoute = instance.router.hasRoute('application_error');
+    const template = this.owner.factoryFor('template:application_error');
+    const route = this.owner.factoryFor('route:application_error');
+
+    assert.ok(routerHasRoute, 'router has route');
+    assert.ok(template || route, 'has template or route');
+  });
 });
